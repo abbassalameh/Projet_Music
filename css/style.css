@@ -2,6 +2,11 @@
 	font-family: "today";
 	src: url(../fonts/today.TTF);
 }
+@font-face{
+	font-family: "romance";
+	src: url(../fonts/romance_serif.TTF);
+}
+
 
 body {
 	background: url(../img/bg.png) repeat;
@@ -359,4 +364,13 @@ ul.date li,ul.country_selector li{display:inline-block;}
 	width: auto;
 	display: inline-block;
 	color:red;
+}
+.initial_title{
+	color:#DFF4FF;
+	font: normal 30px "romance", Sans-serif, Arial;
+}
+.user_logged{
+	color: #CCFFFF;
+	text-decoration: underline;
+	font: bold 20px Comic Sans MS, Verdana, Tahoma;
 }

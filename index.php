@@ -1,3 +1,4 @@
+<?php include ("connection.php");?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -73,7 +74,8 @@ $().ready(function() {
 			<table class="tleft">
 				<tr>
 					<td><img class="logo" src="img/logo.png"></td>
-					<td style='width: 100px;'>Welcome to Mellow-Dee ♪</td>
+					<td class="initial_title" style='width: 500px;'>Welcome to
+						Mellow-Dee ♪</td>
 				</tr>
 			</table>
 			<table class="tright">
@@ -91,13 +93,40 @@ $().ready(function() {
 				<div class="login">
 					<span class="title_login">Login</span> <img src='img/x.png'
 						alt='quit' class='x' id='x' /> <input type="text"
-						placeholder="Username" id="username" value=""> <input
+						placeholder="Username" id="username" value="" name="user_login"> <input
 						type="password" placeholder="password" id="password_login"
-						value=""> <a href="#" class="forgot">forgot password?</a> <input
-						name="login" type="submit" value="Sign In">
+						name="pass_login" value=""><input name="login" type="submit"
+						value="Sign In">
 				</div>
 			</div>
 		</form>
+		<?php
+		if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
+			$user = $_GET ['user_login'];
+			$pass = md5 ( $_GET ['pass_login'] );
+			// connect to db
+			$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
+			$login_result = mysql_query ( $sql );
+			$count = mysql_num_rows ( $login_result );
+			if ($count == 1) {
+				
+				// Successfully verified login information
+				
+				session_start ();
+				if (! isset ( $_SESSION ['username'] )) {
+					$_SESSION ['username'] = $user;
+				}
+				if (! isset ( $_SESSION ['password'] )) {
+					$_SESSION ['password'] = $pass;
+				}
+				header ( "Location: logged_in.php" );
+			} else {
+				// Not logged in. Redirect back to login page
+				header ( "Location: index.php" );
+			}
+		}
+		
+		?>
 		<div class='popup_signup'>
 			<div class="sign_up">
 				<form class="sign_upp" method="GET" action="<?php ?>"
@@ -378,15 +407,16 @@ $().ready(function() {
 						id="email"> <input name="sign_up" type="submit" value="Sign Up">
 				</form>
 								<?php
-								include ("connection.php");
 								if (isset ( $_GET ['username'] ) && isset ( $_GET ['password'] ) && isset ( $_GET ['phone'] ) && isset ( $_GET ['email'] )) {
 									$username = $_GET ['username'];
-									$password = $_GET ['password'];
+									$password = md5 ( $_GET ['password'] );
 									$date = $_GET ['year'] . "-" . $_GET ['month'] . "-" . $_GET ['day'];
 									$country = $_GET ['country_code'];
 									$phone = $_GET ['phone'];
 									$email = $_GET ['email'];
 									if (! empty ( $username ) && ! empty ( $password ) && ! empty ( $date ) && ! empty ( $country ) && ! empty ( $phone ) && ! empty ( $email )) {
+										$check_user="SELECT users,email from users";
+										
 										$querry = "INSERT INTO users(id,username,password,date,country,phone,email) VALUES ('' ,'" . $username . "','" . $password . "','" . $date . "','" . $country . "','" . $phone . "','" . $email . "')";
 										mysql_query ( $querry );
 									}
