@@ -26,7 +26,9 @@ if (! empty ( $title ) && ! empty ( $artist ) && ! empty ( $album ) && ! empty (
 			echo "Return Code: " . $_FILES ["file"] ["error"] . "<br>";
 		} else {
 			$music_nom = ucfirst ( $title ) . '-' . ucfirst ( $artist ) . ".mp3";
-			$cover_nom = ucfirst ( $title ) . '-' . ucfirst ( $artist ) . ".png";
+			if($extension_images=="png")$cover_nom = ucfirst ( $title ) . '-' . ucfirst ( $artist ) . ".png";
+			if($extension_images=="jpg")$cover_nom = ucfirst ( $title ) . '-' . ucfirst ( $artist ) . ".jpg";
+			if($extension_images=="jpeg")$cover_nom = ucfirst ( $title ) . '-' . ucfirst ( $artist ) . ".jpeg";
 			if ((file_exists ( "music/" . $music_nom )) || (file_exists ( "tmp_cover/" . $cover_nom ))) {
 				echo "<script>alert('File already exists');
 				window.location = 'music_upload.php';</script>";
@@ -42,15 +44,17 @@ if (! empty ( $title ) && ! empty ( $artist ) && ! empty ( $album ) && ! empty (
 			echo " was read <br/>";
 			// *** Resize to best fit then crop
 			$magicianObj->resizeImage ( 80, 80, 'crop' );
+			
 			echo "resized <br/>";
 			// *** Save resized image as a PNG
 			$magicianObj->saveImage ( "cover/" . $cover_nom );
 			$cover_dir = "cover/" . $cover_nom;
 			$file = "music/" . $music_nom;
-			echo "Crop done successfully";
+			echo "Crop done successfully<br>";
 			$querry = "INSERT INTO music(id,title,artist,album,cover,file) VALUES ('' ,'" . $title . "','" . $artist . "','" . $album . "','" . $cover_dir . "','" . $file . "')";
 			mysql_query ( $querry );
-			echo "L'insertion a ete fait";
+			echo "L'insertion a ete fait<br>";
+			
 		}
 	} else {
 		echo "<script>alert('Invalid File');

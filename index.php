@@ -1,4 +1,31 @@
-<?php include ("connection.php");?>
+<?php
+include ("connection.php");
+session_start ();
+$querry_music = "SELECT * FROM music ORDER BY RAND() LIMIT 10";
+$result_music = mysql_query ( $querry_music );
+?>
+<?php
+
+if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
+	$user = $_GET ['user_login'];
+	$pass = md5 ( $_GET ['pass_login'] );
+	$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
+	$login_result = mysql_query ( $sql );
+	$count = mysql_num_rows ( $login_result );
+	if ($count == 1) {
+		if (! isset ( $_SESSION ['username'] )) {
+			$_SESSION ['username'] = $user;
+		}
+		if (! isset ( $_SESSION ['password'] )) {
+			$_SESSION ['password'] = $pass;
+		} else
+			header ( "Location: logged_in.php" );
+	} else {
+		header ( "Location: index.php" );
+	}
+}
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -10,19 +37,47 @@
 <!-- la icon doit etre de type png -->
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+<link rel="stylesheet" type="text/css" href="./plugin/css/style.css">
 <!-- la feuille de style de cette page -->
 <title>Welcome | Mellow-Dee</title>
 <!-- jquerry pour la boite de recherche -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!--  -->
+<script src="audiojs/audio.min.js"></script>
 <script src="js/prefixfree.min.js"></script>
 <script src="js/master.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript"
+	src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
+<script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
+<script type="text/javascript">
+	var myPlaylist = [
+		<?php
+		
+		while ( $row = mysql_fetch_assoc ( $result_music ) ) {
+			echo "{" . "mp3:'" . $row ['file'] . "'," . "title:'" . ucfirst ( str_replace ( '_', ' ', $row ['title'] ) ) . "'," . "artist:'" . ucfirst ( str_replace ( '_', ' ', $row ['artist'] ) ) . "'," . "cover:'" . $row ['cover'] . "'},";
+		}
+		?>
+	]; 
+	</script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var description = '';
+
+            $('.music_sample').ttwMusicPlayer(myPlaylist, {
+                autoPlay:false, 
+                description:description,
+                jPlayer:{
+                    swfPath:'../plugin/jquery-jplayer' //You need to override the default swf path any time the directory structure changes
+                }
+            });
+        });
+    </script>
 <script>
 $().ready(function() {
-	// validate the comment form when it is submitted
-	// validate signup form on keyup and submit
+
 	$(".sign_upp").validate({
 		rules: {
 			phone: "required",
@@ -66,6 +121,11 @@ $().ready(function() {
 
 });
 </script>
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -82,13 +142,17 @@ $().ready(function() {
 				<tr>
 					<td class="links"><a class="click" href=''>Login</a></td>
 					<td class="links"><a class="signup" href=''>Sign Up</a></td>
-					<td style='width: 300px'><span id="search"> <input name="q"
-							type="text" size="40" placeholder="search..." />
-					</span></td>
+					<td style='width: 300px'>
+						<form action="index.php" method="GET">
+							<span id="search"> <input name="q" type="text" size="40"
+								placeholder="search..." />
+							</span>
+						</form>
+					</td>
 				</tr>
 			</table>
 		</nav>
-		<form action="<?php ?>" action='GET'>
+		<form action="index.php" action='GET'>
 			<div class='popup'>
 				<div class="login">
 					<span class="title_login">Login</span> <img src='img/x.png'
@@ -100,36 +164,10 @@ $().ready(function() {
 				</div>
 			</div>
 		</form>
-		<?php
-		if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
-			$user = $_GET ['user_login'];
-			$pass = md5 ( $_GET ['pass_login'] );
-			// connect to db
-			$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
-			$login_result = mysql_query ( $sql );
-			$count = mysql_num_rows ( $login_result );
-			if ($count == 1) {
-				
-				// Successfully verified login information
-				
-				session_start ();
-				if (! isset ( $_SESSION ['username'] )) {
-					$_SESSION ['username'] = $user;
-				}
-				if (! isset ( $_SESSION ['password'] )) {
-					$_SESSION ['password'] = $pass;
-				}
-				header ( "Location: logged_in.php" );
-			} else {
-				// Not logged in. Redirect back to login page
-				header ( "Location: index.php" );
-			}
-		}
-		
-		?>
+
 		<div class='popup_signup'>
 			<div class="sign_up">
-				<form class="sign_upp" method="GET" action="<?php ?>"
+				<form class="sign_upp" method="GET" action="index.php"
 					novalidate="novalidate">
 					<span class="title_signup">Signup</span> <img src='img/x.png'
 						alt='quit' class='x' id='close' /> <input type="text"
@@ -415,8 +453,7 @@ $().ready(function() {
 									$phone = $_GET ['phone'];
 									$email = $_GET ['email'];
 									if (! empty ( $username ) && ! empty ( $password ) && ! empty ( $date ) && ! empty ( $country ) && ! empty ( $phone ) && ! empty ( $email )) {
-										$check_user="SELECT users,email from users";
-										
+										$check_user = "SELECT users,email from users";
 										$querry = "INSERT INTO users(id,username,password,date,country,phone,email) VALUES ('' ,'" . $username . "','" . $password . "','" . $date . "','" . $country . "','" . $phone . "','" . $email . "')";
 										mysql_query ( $querry );
 									}
@@ -428,7 +465,27 @@ $().ready(function() {
 		<div id="core" class="clearfix">
 			<div class="left">
 				<section id="left">
-					<p>some content here.</p>
+
+					<div class="content_left">
+						<!--  this is where the search results goes -->
+						<?php
+						echo "<div class=\"search_result\">";
+						if (isset ( $_GET ['q'] )) {
+							$q = $_GET ['q'];
+							$q = str_replace ( ' ', '_', strtolower ( $q ) );
+							$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";
+							$search_result = mysql_query ( $search_querry );
+							$nb_result = mysql_num_rows ( $search_result );
+							while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
+								echo "<img src=\"" . $row_search ['cover'] . "\"/><br>";
+								echo "<audio src=\"" . $row_search ['file'] . "\" preload=\"auto\" ></audio>";
+							}
+						}
+						
+						?>
+						<div class="title_content_left">Suggested Music</div>
+						<div class="music_sample"></div>
+					</div>
 				</section>
 			</div>
 			<div class="right">
