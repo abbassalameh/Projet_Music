@@ -43,7 +43,6 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 <!-- jquerry pour la boite de recherche -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!--  -->
-<script src="audiojs/audio.min.js"></script>
 <script src="js/prefixfree.min.js"></script>
 <script src="js/master.js"></script>
 <script src="js/jquery.js"></script>
@@ -120,11 +119,6 @@ $().ready(function() {
 	});
 
 });
-</script>
-<script>
-  audiojs.events.ready(function() {
-    var as = audiojs.createAll();
-  });
 </script>
 </head>
 <body>
@@ -469,21 +463,28 @@ $().ready(function() {
 					<div class="content_left">
 						<!--  this is where the search results goes -->
 						<?php
-						echo "<div class=\"search_result\">";
 						if (isset ( $_GET ['q'] )) {
+							echo "<div class=\"search_result\">";
 							$q = $_GET ['q'];
 							$q = str_replace ( ' ', '_', strtolower ( $q ) );
 							$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";
 							$search_result = mysql_query ( $search_querry );
 							$nb_result = mysql_num_rows ( $search_result );
 							while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
-								echo "<img src=\"" . $row_search ['cover'] . "\"/><br>";
-								echo "<audio src=\"" . $row_search ['file'] . "\" preload=\"auto\" ></audio>";
+								$title_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['title'] ) ) );
+								$artist_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['artist'] ) ) );
+								echo "<table><tr><td rowspan=3><img  src=\"" . $row_search ['cover'] . "\"/></td>";
+								echo "<td style=\"font: normal 30px Georgia, Arial , sans-serif;color:#0047B2;\">" . $title_searched . "</td></tr>";
+								echo "<tr><td style=\"font: normal 15px Helvetica, arial, sans-serif;\">" . $artist_searched . "</td></tr>";
+								echo "<tr><td><audio controls>
+								<source src=\"" . $row_search ['file'] . "\" type=\"audio/mpeg\">
+								Your browser does not support the audio element.
+								</audio></tr></td></table>";
 							}
+							echo "</div>";
 						}
 						
-						?>
-						<div class="title_content_left">Suggested Music</div>
+						?>						<div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div>
 					</div>
 				</section>
