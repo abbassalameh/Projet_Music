@@ -1,11 +1,8 @@
 <?php
-include ("connection.php");
-session_start ();
-$querry_music = "SELECT * FROM music ORDER BY RAND() LIMIT 10";
-$result_music = mysql_query ( $querry_music );
+include ("suggested.php");
 ?>
-<?php
 
+<?php
 if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 	$user = $_GET ['user_login'];
 	$pass = md5 ( $_GET ['pass_login'] );
@@ -24,7 +21,6 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 		header ( "Location: index.php" );
 	}
 }
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -438,22 +434,7 @@ $().ready(function() {
 						name="phone"> <input name="email" type="text" placeholder="Email"
 						id="email"> <input name="sign_up" type="submit" value="Sign Up">
 				</form>
-								<?php
-								if (isset ( $_GET ['username'] ) && isset ( $_GET ['password'] ) && isset ( $_GET ['phone'] ) && isset ( $_GET ['email'] )) {
-									$username = $_GET ['username'];
-									$password = md5 ( $_GET ['password'] );
-									$date = $_GET ['year'] . "-" . $_GET ['month'] . "-" . $_GET ['day'];
-									$country = $_GET ['country_code'];
-									$phone = $_GET ['phone'];
-									$email = $_GET ['email'];
-									if (! empty ( $username ) && ! empty ( $password ) && ! empty ( $date ) && ! empty ( $country ) && ! empty ( $phone ) && ! empty ( $email )) {
-										$check_user = "SELECT users,email from users";
-										$querry = "INSERT INTO users(id,username,password,date,country,phone,email) VALUES ('' ,'" . $username . "','" . $password . "','" . $date . "','" . $country . "','" . $phone . "','" . $email . "')";
-										mysql_query ( $querry );
-									}
-									echo "<script> alert('Submitted, you will soon receive mail for activation');</script>";
-								}
-								?>
+								<?php include("signup.php");?>
 			</div>
 		</div>
 		<div id="core" class="clearfix">
@@ -462,30 +443,10 @@ $().ready(function() {
 
 					<div class="content_left">
 						<!--  this is where the search results goes -->
-						<?php
-						if (isset ( $_GET ['q'] )) {
-							echo "<div class=\"search_result\">";
-							$q = $_GET ['q'];
-							$q = str_replace ( ' ', '_', strtolower ( $q ) );
-							$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";
-							$search_result = mysql_query ( $search_querry );
-							$nb_result = mysql_num_rows ( $search_result );
-							while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
-								$title_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['title'] ) ) );
-								$artist_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['artist'] ) ) );
-								echo "<table><tr><td rowspan=3><img  src=\"" . $row_search ['cover'] . "\"/></td>";
-								echo "<td style=\"font: normal 30px Georgia, Arial , sans-serif;color:#0047B2;\">" . $title_searched . "</td></tr>";
-								echo "<tr><td style=\"font: normal 15px Helvetica, arial, sans-serif;\">" . $artist_searched . "</td></tr>";
-								echo "<tr><td><audio controls>
-								<source src=\"" . $row_search ['file'] . "\" type=\"audio/mpeg\">
-								Your browser does not support the audio element.
-								</audio></tr></td></table>";
-							}
-							echo "</div>";
-						}
-						
-						?>						<div class="title_content_left">Suggested Music</div>
-						<div class="music_sample"></div>
+						<?php include("search.php"); ?>
+						<?php if($_SESSION['search_result']==0){?>
+<div class="title_content_left">Suggested Music</div>
+						<div class="music_sample"></div> <?php  }?>
 					</div>
 				</section>
 			</div>
