@@ -196,7 +196,7 @@ footer {
 	width: 100%;
 	height: 100%;
 	background-color: #000;
-	filter: alpha(opacity =             70);
+	filter: alpha(opacity =                 70);
 	-moz-opacity: 0.7;
 	-khtml-opacity: 0.7;
 	opacity: 0.7;
@@ -228,7 +228,6 @@ footer {
 .login .x:hover,.signup .x:hover {
 	cursor: pointer;
 }
-
 
 .popup .login {
 	background: #eceeee;
@@ -500,8 +499,9 @@ ul.date li,ul.country_selector li {
 .content_right {
 	margin: 0px 15px 15px 15px;
 }
+
 .playlists {
-	position:absolute;
+	position: absolute;
 	margin-top: 5px;
 	margin-left: 5px;
 	padding-left: 8px 8px 8px 8px;
@@ -524,9 +524,71 @@ ul.date li,ul.country_selector li {
 	background-color: #C2D4ED;
 	border-bottom: 6px double #46ABD4;
 }
-.title_container{
-	margin-top:10px;
+
+.title_container {
+	margin-top: 10px;
 }
-.playlist_list{
-	position:absolute;
+
+.playlist_list {
+	position: absolute;
 }
+
+.add_playlist {
+	width: 210px;
+	margin: 10px 10px 10px 10px;
+	display: inline-block;
+	background-color: #0278ff;
+	color: #141414;
+	padding: 5px 10px 6px 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.add_playlist:hover {
+	width: 210px;
+	margin: 10px 10px 10px 10px;
+	display: inline-block;
+	background-color: #00c0ff;
+	color: #ffffff;
+	padding: 5px 10px 6px 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.submit_playlist_name {
+	margin-left:5x;
+	display: inline-block;
+	background-color: #0278ff;
+	color: #141414;
+	padding: 5px 10px 6px 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+	
+}
+
+.submit_playlist_name:hover {
+	background-color: #00c0ff;
+	color: #ffffff;	
+}
+.playlist_name_input{
+	height:20px;
+	}
+.playlist_emtpy{
+	color:#FF0000;
+	font: normal 11px Verdana, Tahoma, Arial;
+}	
