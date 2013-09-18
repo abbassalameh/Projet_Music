@@ -57,13 +57,12 @@ body {
 	color: #FFFFFF;
 	background: url(../img/search-dark.png) no-repeat 10px 10px #85C2FF;
 }
-
-a.click,a.signup {
+a.click,a.signup,a.logout{
 	color: #F9FCFF;
 	text-decoration: none;
 	font: bold 20px Comic Sans MS, Verdana, Tahoma;
-}
-
+	}
+ 
 a:hover {
 	color: #CCFFFF;
 }

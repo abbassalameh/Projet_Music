@@ -23,16 +23,13 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 <!-- la feuille de style de cette page -->
 <title>Welcome | Mellow-Dee</title>
 <!-- jquerry pour la boite de recherche -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<!--  -->
+<script src="js/jquery.min.js"></script>
 <script src="js/prefixfree.min.js"></script>
-<script src="js/jquery.js"></script>
+<script src="js/master.js"></script>
 <script src="js/jquery.validate.js"></script>
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-<script type="text/javascript"
-	src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
-<script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
-<script type="text/javascript" src="js/master_input.js"></script>
+<script src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
+<script src="./plugin/ttw-music-player-min.js"></script>
+<script src="js/master_input.js"></script>
 <script type="text/javascript">
 	var myPlaylist = [
 		<?php
@@ -56,7 +53,7 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
             });
         });
     </script>
-</head>
+   </head>
 <body>
 	<div id="wrapper">
 
@@ -71,7 +68,7 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 			<table class="tright">
 				<tr>
 					<td class="links" style='width: 120px;'><div class="user_logged">Hello ,<?php echo $_SESSION['username'];?></div></td>
-					<td class="links"><a class="signup" href='logout.php'>Logout</a></td>
+					<td class="links"><a class="logout" href='logout.php'>Logout</a></td>
 					<td style='width: 300px'>
 						<form action="logged_in.php" method="GET">
 							<span id="search"> <input name="q" type="text" size="40"
@@ -82,13 +79,21 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 				</tr>
 			</table>
 		</nav>
+		<div class='popup'>
+				<div class="login">
+					<span class="title_login">Playlist</span>
+					<img src='img/x.png' alt='quit' class='x' id='x' />
+					<?php include ("list_playlist_popup.php");?>
+				</div>
+			</div>
 		<div id="core" class="clearfix">
 			<div class="left">
 				<section id="left">
 
 					<div class="content_left">
 						<!--  this is where the search results goes -->
-						<?php include("search_logged.php"); ?>
+						<form action='list_playlist_popup.php' method='GET'>
+						<?php include("search_logged.php"); ?></form>
 						<?php if($_SESSION['search_result']==0){?>
 <div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
@@ -119,17 +124,18 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 							$playlist_checking = mysql_query ( $check_playlist );
 							$nb_results = mysql_num_rows ( $playlist_checking );
 							if ($nb_results > 0)
-								"<div class=playlist_exists>You alreay a playlist named " . $playlist_entry . "</div>";
+								"<div class=playlist_exists>You already have a playlist named " . $playlist_entry . "</div>";
 							
 							else
 								mysql_query ( $playlist_insert_query );
 						}
 					}
+					 
 					$result_playlist = mysql_query ( $playlist_query );
 					if (mysql_num_rows ( $result_playlist ) > 0) {
 						while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
-							echo "<div class=\"playlist_name\"><a href=\"playlist.php\">" . $row_playlists ['playlist_name'] . "</a></div>";
-							$_SESSION ['playlist_name'] = $row_playlists ['playlist_name'];
+							include("list_playlist.php");
+							
 						}
 					} else
 						"<div class='playlist_emtpy'>Your playlist is empty</div>";
@@ -148,5 +154,5 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 		</footer>
 	</div>
 	<script src="js/modernizr.js"></script>
-</body>
+	</body>
 </html>
