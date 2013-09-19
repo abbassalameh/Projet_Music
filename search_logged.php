@@ -12,7 +12,7 @@ if (isset ( $_GET ['q'] )) {
 		$artist_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['artist'] ) ) );
 		echo "<table><tr><td rowspan=3><img  src=\"" . $row_search ['cover'] . "\"/></td>";
 		echo "<td style=\"font: normal 30px Georgia, Arial , sans-serif;color:#0047B2;\">" . $title_searched . "</td>
-				<td><div class=\"work\"><a name=\"music_id\" value=\"".$row_search['id']."\" class=\"button add do_it\" id=\"sometin\"\">Add</a></div></td></tr>";
+				<td><div class=\"work\"><a name=\"music_id\" value=\"".$row_search['id']."\" class=\"button add do_it\" id=\"sometin\">Add</a></div></td></tr>";
 		echo "<tr><td style=\"font: normal 15px Helvetica, arial, sans-serif;\">" . $artist_searched . "</td>
 				<td></td></tr>";
 		echo "<tr><td><audio controls>
