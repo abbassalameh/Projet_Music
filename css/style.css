@@ -664,19 +664,29 @@ ul.date li,ul.country_selector li {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
+<<<<<<< HEAD
 /* Tiny Scrollbar 3 */
 #scrollbar2 {
+=======
+/* Tiny Scrollbar */
+#scrollbar12 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	width: 270px;
 	margin: 20px 0 10px;
 }
 
+<<<<<<< HEAD
 #scrollbar2 .viewport {
+=======
+#scrollbar12 .viewport2 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	width: 250px;
 	height: 170px;
 	overflow: hidden;
 	position: relative;
 }
 
+<<<<<<< HEAD
 #scrollbar2 .overview {
 	list-style: none;
 	position: absolute;
@@ -750,6 +760,9 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar3 .overview {
+=======
+#scrollbar12 .overview2 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	list-style: none;
 	position: absolute;
 	left: 0;
@@ -758,16 +771,26 @@ ul.date li,ul.country_selector li {
 	margin: 0;
 }
 
+<<<<<<< HEAD
 #scrollbar3 .scrollbar {
 	background: transparent url(../img/bg-scrollbar-track-y.png)
 		repeat 0 0;
+=======
+#scrollbar12 .scrollbar2 {
+	background: transparent url(../img/bg-scrollbar-track-y.png)
+		no-repeat 0 0;
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	position: relative;
 	background-position: 0 0;
 	float: right;
 	width: 15px;
 }
 
+<<<<<<< HEAD
 #scrollbar3 .track {
+=======
+#scrollbar12 .track2 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	background: transparent url(../img/bg-scrollbar-trackend-y.png)
 		no-repeat 0 100%;
 	height: 100%;
@@ -776,7 +799,11 @@ ul.date li,ul.country_selector li {
 	padding: 0 1px;
 }
 
+<<<<<<< HEAD
 #scrollbar3 .thumb {
+=======
+#scrollbar12 .thumb2 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	background: transparent url(../img/bg-scrollbar-thumb-y.png)
 		no-repeat 50% 100%;
 	height: 20px;
@@ -788,7 +815,11 @@ ul.date li,ul.country_selector li {
 	left: -5px;
 }
 
+<<<<<<< HEAD
 #scrollbar3 .thumb .end {
+=======
+#scrollbar12 .thumb2 .end2 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	background: transparent url(../img/bg-scrollbar-thumb-y.png)
 		no-repeat 50% 0;
 	overflow: hidden;
@@ -796,7 +827,11 @@ ul.date li,ul.country_selector li {
 	width: 25px;
 }
 
+<<<<<<< HEAD
 #scrollbar3 .disable {
+=======
+#scrollbar12 .disable2 {
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 	display: none;
 }
 
@@ -806,4 +841,8 @@ ul.date li,ul.country_selector li {
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
