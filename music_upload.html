@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset=UTF-8>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<link rel=stylesheet type=text/css href=css/style.css>
+<!-- la icon doit etre de type png -->
+<link rel="shortcut icon" href="img/favicon.png" type="image/png">
+<link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+<!-- la feuille de style de cette page -->
+<title>Welcome | Mellow-Dee</title>
+<!-- jquerry pour la boite de recherche -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!--  -->
+<script src="js/prefixfree.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+<nav>
+			<table class="tleft">
+				<tr>
+					<td><img class="logo" src="img/logo.png"></td>
+					<td style='width: 100px;'>Welcome to Mellow-Dee ♪</td>
+				</tr>
+			</table>
+			<table class="tright">
+				<tr>
+					<td class="links"><a class="click" href=''>Login</a></td>
+					<td class="links"><a class="signup" href=''>Sign Up</a></td>
+					<td style='width: 300px'><span id="search"> <input name="q"
+							type="text" size="40" placeholder="search..." />
+					</span></td>
+				</tr>
+			</table>
+		</nav>
+	<div id="core" class="clearfix">
+	<h1>Welcome Administrator , please upload your musical data</h1>
+	
+	<form action="upload_file.php" method="POST"
+		enctype="multipart/form-data">
+		<table>
+
+			<tr>
+				<td><label for="file">Music File:</label></td>
+				<td><input type="file" name="file" id="file"></td>
+			</tr>
+			<tr>
+				<td>Genre:</td>
+				<td><select name="genre">
+						<option value="alternative_rock">Alternative Rock</option>
+						<option value="metal_rock">Metal Rock</option>
+						<option value="rock">Rock</option>
+						<option value="indie">Indie</option>
+						<option value="dubstep">Dubstep</option>
+						<option value="clasical">Clasical</option>
+						<option value="pop">Pop</option>
+						<option value="electronic">Electronic</option>
+						<option value="Hip Hop">Electronic</option>
+						<option value="r&b">R&amp;B</option>
+						<option value="african">African</option>
+						<option value="edm">EDM</option>
+						<option value="dance">Dance</option>
+						<option value="blues">Blues</option>
+						<option value="country">Country</option>
+						<option value="eastern">Eastern</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Title:</td>
+				<td><input type=text name="title" value="" maxlength=40></td>
+			</tr>
+			<tr>
+				<td>Artist:</td>
+				<td><input type=text name="artist" value="" maxlength=40></td>
+			</tr>
+			<tr>
+				<td>Album:</td>
+				<td><input type=text name="album" value="" maxlength=40></td>
+			</tr>
+			<tr>
+				<td><label for="cover">Cover Art:</label></td>
+				<td><input type="file" name="cover" id="cover"></td>
+			</tr>
+			<tr>
+				<td colspan=2><input type="submit" name="submit" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+	
+		</div>
+<footer>
+		<p>Some copyright and legal notices here. Maybe use the © symbol a bit.</p>
+</footer>
+</div>
+</body>
+</html>
