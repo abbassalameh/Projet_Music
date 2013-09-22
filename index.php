@@ -10,10 +10,10 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 	$login_result = mysql_query ( $sql );
 	$count = mysql_num_rows ( $login_result );
 	if ($count == 1) {
-		if (! isset ( $_SESSION ['username'] )) {
+		if (!isset ( $_SESSION ['username'] )) {
 			$_SESSION ['username'] = $user;
 		}
-		if (! isset ( $_SESSION ['password'] )) {
+		if (!isset ( $_SESSION ['password'] )) {
 			$_SESSION ['password'] = $pass;
 		} else
 			header ( "Location: logged_in.php" );
