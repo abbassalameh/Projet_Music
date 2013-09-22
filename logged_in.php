@@ -31,6 +31,13 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 <script src="./plugin/ttw-music-player-min.js"></script>
 <script src="js/master_input.js"></script>
 <script src="js/master_ajax.js"></script>
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#scrollbar1').tinyscrollbar();
+			$('#scrollbar12').tinyscrollbar();
+		});
+	</script>	
 <script type="text/javascript">
 	var myPlaylist = [
 		<?php
@@ -155,5 +162,7 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 	</div>
 	<script src="js/modernizr.js"></script>
 	<script src="http:"></script>
+	<?php if(isset($_GET['playlist_notice']) && $_GET['playlist_notice']=="true"){?>
+	<script>alert("You already have this track in your playlists");</script><?php }?>
 	</body>
 </html>
