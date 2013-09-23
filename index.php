@@ -46,9 +46,18 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 <script src="js/jquery.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
-<script type="text/javascript"
-	src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
+<script type="text/javascript" src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
 <script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript" src="js/jquery.simplyscroll.js"></script>
+<link rel="stylesheet" href="css/jquery.simplyscroll.css" media="all" type="text/css">
+<script type="text/javascript">
+(function($) {
+	$(function() {
+		$("#scroller").simplyScroll({orientation:'vertical',customClass:'vert'});
+	});
+})(jQuery);
+</script>
 <script type="text/javascript">
 	var myPlaylist = [
 		<?php
@@ -61,9 +70,9 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 	</script>
 <script type="text/javascript">
         $(document).ready(function(){
+        	$('#scrollbar3').tinyscrollbar();
             var description = '';
-
-            $('.music_sample').ttwMusicPlayer(myPlaylist, {
+			$('.music_sample').ttwMusicPlayer(myPlaylist, {
                 autoPlay:false, 
                 description:description,
                 jPlayer:{
@@ -454,7 +463,14 @@ $().ready(function() {
 			</div>
 			<div class="right">
 				<section id="right">
-					
+				<div class="playlists">
+								<div class="title_container">
+									<div class="artists_title">Our Artists</div>
+								</div>
+					<div class="scroll_thing">
+					<ul id="scroller"><?php include ("scrolling.php");?></ul>
+					</div>
+					</div>
 				</section>
 			</div>
 		</div>

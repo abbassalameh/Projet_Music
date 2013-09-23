@@ -517,12 +517,16 @@ ul.date li,ul.country_selector li {
 	height: 500px;
 }
 
-.playlists_title {
+.playlists_title ,.artists_title{
 	color: #0066FF;
 	border: 3px solid #3399FF;
 	font: normal 30px "Dutch & Harley", Verdana, Tahoma;
 	padding-left: 20px;
 	background-color: #EBF3FF;
+}
+.artists_title{
+	margin-left:23px;
+	margin-top:20px;
 }
 
 .playlist_name {
@@ -997,4 +1001,7 @@ background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -0px;}
 
 .icon-button:hover .icon-twitter{
 	color: #4099ff;
+}
+.scroll_thing{
+	margin:40px 0px 0px 0px;}
 }
