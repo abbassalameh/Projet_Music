@@ -33,17 +33,7 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 <script src="js/master_ajax.js"></script>
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
 var myPlaylist = [
-=======
-		$(document).ready(function(){
-			$('#scrollbar1').tinyscrollbar();
-			$('#scrollbar12').tinyscrollbar();
-		});
-	</script>	
-<script type="text/javascript">
-	var myPlaylist = [
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 		<?php
 		
 		while ( $row = mysql_fetch_assoc ( $result_music ) ) {
@@ -51,7 +41,6 @@ var myPlaylist = [
 		}
 		?>
 	]; 
-<<<<<<< HEAD
 </script>
 <script type="text/javascript">
         $(document).ready(function(){
@@ -59,14 +48,6 @@ var myPlaylist = [
         	$('#scrollbar3').tinyscrollbar();
         	var description = '';
 $('.music_sample').ttwMusicPlayer(myPlaylist, {
-=======
-	</script>
-<script type="text/javascript">
-        $(document).ready(function(){
-            var description = '';
-
-            $('.music_sample').ttwMusicPlayer(myPlaylist, {
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
                 autoPlay:false, 
                 description:description,
                 jPlayer:{
@@ -75,11 +56,7 @@ $('.music_sample').ttwMusicPlayer(myPlaylist, {
             });
         });
     </script>
-<<<<<<< HEAD
 </head>
-=======
-   </head>
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 <body>
 	<div id="wrapper">
 
@@ -106,7 +83,6 @@ $('.music_sample').ttwMusicPlayer(myPlaylist, {
 			</table>
 		</nav>
 		<div class='popup'>
-<<<<<<< HEAD
 
 			<div class="login">
 				<span class="title_login">Playlist</span> <img src='img/x.png'
@@ -130,14 +106,6 @@ $('.music_sample').ttwMusicPlayer(myPlaylist, {
 
 			</div>
 		</div>
-=======
-				<div class="login">
-					<span class="title_login">Playlist</span>
-					<img src='img/x.png' alt='quit' class='x' id='x' />
-					<div id="drop_the_nukes"></div>
-				</div>
-			</div>
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 		<div id="core" class="clearfix">
 			<div class="left">
 				<section id="left">
@@ -181,20 +149,11 @@ $('.music_sample').ttwMusicPlayer(myPlaylist, {
 								mysql_query ( $playlist_insert_query );
 						}
 					}
-<<<<<<< HEAD
 					
 					$result_playlist = mysql_query ( $playlist_query );
 					if (mysql_num_rows ( $result_playlist ) > 0) {
 						while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
 							include ("list_playlist.php");
-=======
-					 
-					$result_playlist = mysql_query ( $playlist_query );
-					if (mysql_num_rows ( $result_playlist ) > 0) {
-						while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
-							include("list_playlist.php");
-							
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 						}
 					} else
 						"<div class='playlist_emtpy'>Your playlist is empty</div>";

@@ -12,11 +12,7 @@ $result_playlist = mysql_query ( $playlist_query );
 	</div>
 	<div class="viewport">
 		<div class="overview">
-<<<<<<< HEAD
  
-=======
-
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
 <?php
 while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
 	
@@ -26,7 +22,4 @@ while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
 	</div>
 	</div>
 </div>
-<<<<<<< HEAD
  
-=======
->>>>>>> b2ac1cd101e9a2daf437e97c230cf161faa090fa
