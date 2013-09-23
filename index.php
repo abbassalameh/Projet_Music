@@ -10,10 +10,10 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 	$login_result = mysql_query ( $sql );
 	$count = mysql_num_rows ( $login_result );
 	if ($count == 1) {
-		if (!isset ( $_SESSION ['username'] )) {
+		if (! isset ( $_SESSION ['username'] )) {
 			$_SESSION ['username'] = $user;
 		}
-		if (!isset ( $_SESSION ['password'] )) {
+		if (! isset ( $_SESSION ['password'] )) {
 			$_SESSION ['password'] = $pass;
 		} else
 			header ( "Location: logged_in.php" );
@@ -28,12 +28,14 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 <meta charset=UTF-8>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
 <link rel=stylesheet type=text/css href=css/style.css>
-<link rel="stylesheet"
-	href="http://jquery.bassistance.de/validate/demo/css/screen.css">
+<link rel='stylesheet perytech' type=text/css href='css/font-awesome.css'>
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="http://jquery.bassistance.de/validate/demo/css/screen.css">
 <!-- la icon doit etre de type png -->
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 <link rel="stylesheet" type="text/css" href="./plugin/css/style.css">
+
 <!-- la feuille de style de cette page -->
 <title>Welcome | Mellow-Dee</title>
 <!-- jquerry pour la boite de recherche -->
@@ -452,22 +454,33 @@ $().ready(function() {
 			</div>
 			<div class="right">
 				<section id="right">
-					<p>but some here as well!</p>
+					
 				</section>
 			</div>
 		</div>
 		<footer>
-			
-<div class="image_container"><div class="profo dev"><a><span></span><img src="./img/9.jpg" alt="image"></a></div></div>
-<div class="text_dev">Hello I'm Yuri and I'm the developer of this website . I thirst for code . I have an unconditional love to javascript,CSS3 and HTML5 . I experiemt a lot . Wicked as a witch yet awesome as Barney Stinson . <div class="quote">Your future is what you build in your past</div></div>
-<div class='social-wrap'>
-<ul>
-<li><a class='facebook' href='http://www.facebook.com/' target='_blaank'>Facebook</a></li>
-<li><a class='twitter' href='http://twitter.com/' target='_blaank'>Twitter</a></li>
-<li><a class='google-p' href='https://plus.google.com/' target='_blaank'>Google Plus</a></li>
-<li><a class='rss' href='#' target='_blaank'>Rss</a></li>
-</ul>
-</div>
+
+			<div class="image_container">
+				<div class="profo dev">
+					<a><span></span><img src="./img/9.jpg" alt="image"></a>
+				</div>
+			</div>
+			<div class="text_dev">
+				Hello I'm Yuri and I'm the developer of this website . I thirst for
+				code . I have an unconditional love to javascript,CSS3 and HTML5 . I
+				experiemt a lot . Wicked as a witch yet awesome as Barney Stinson .
+				<div class="quote">Your future is what you build in your past</div>
+			</div>
+			<div class='social-wrap'>
+				<ul>
+					<li><a class='facebook' href='http://www.facebook.com/'
+						target='_blaank'>Facebook</a></li>
+					<li><a class='twitter' href='http://twitter.com/' target='_blaank'>Twitter</a></li>
+					<li><a class='google-p' href='https://plus.google.com/'
+						target='_blaank'>Google Plus</a></li>
+					<li><a class='rss' href='#' target='_blaank'>Rss</a></li>
+				</ul>
+			</div>
 		</footer>
 	</div>
 	<script src="js/modernizr.js"></script>
