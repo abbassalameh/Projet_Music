@@ -14,7 +14,7 @@ if (isset ( $_GET ['q'] )) {
 	
 	<?php
 	
-$q = $_GET ['q'];
+	$q = $_GET ['q'];
 	$q = str_replace ( ' ', '_', strtolower ( $q ) );
 	$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";
 	$search_result = mysql_query ( $search_querry );
@@ -34,7 +34,7 @@ $q = $_GET ['q'];
 		echo "<tr><td><audio controls>
 								<source src=\"" . $row_search ['file'] . "\" type=\"audio/mpeg\">
 								Your browser does not support the audio element.
-								</audio></tr></td>
+								</audio></tr>
 								</table>";
 		echo "</div>";
 	}
@@ -46,6 +46,5 @@ $q = $_GET ['q'];
 	</div>
 </div>
 <?php
-
 }
 ?>	

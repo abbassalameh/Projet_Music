@@ -1,16 +1,13 @@
 <?php
 include ("suggested.php");
 include ("connection.php");
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
 <meta charset=UTF-8>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
-<link rel=stylesheet type=text/css href=css/style.css>
-<link rel="stylesheet"
-	href="http://jquery.bassistance.de/validate/demo/css/screen.css">
+<link rel=stylesheet type=text/css href=css/style.css media="screen">
 <!-- la icon doit etre de type png -->
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
@@ -18,17 +15,18 @@ include ("connection.php");
 <!-- la feuille de style de cette page -->
 <title>Welcome | Mellow-Dee</title>
 <!-- jquerry pour la boite de recherche -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<!--  -->
+<script src="js/jquery.min.js"></script>
 <script src="js/prefixfree.min.js"></script>
-<script src="js/jquery.js"></script>
+<script src="js/master.js"></script>
 <script src="js/jquery.validate.js"></script>
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript"
 	src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
 <script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
+<script type="text/javascript" src="js/master_input.js"></script>
+<script type="text/javascript" src="js/master_ajax.js"></script>
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
 <script type="text/javascript">
-	var myPlaylist = [
+var myPlaylist = [
 		<?php
 		
 		while ( $row = mysql_fetch_assoc ( $result_music ) ) {
@@ -36,12 +34,13 @@ include ("connection.php");
 		}
 		?>
 	]; 
-	</script>
+</script>
 <script type="text/javascript">
         $(document).ready(function(){
-            var description = '';
-
-            $('.music_sample').ttwMusicPlayer(myPlaylist, {
+        	$('#scrollbar1').tinyscrollbar();
+        	$('#scrollbar3').tinyscrollbar();
+        	var description = '';
+				$('.music_sample').ttwMusicPlayer(myPlaylist, {
                 autoPlay:false, 
                 description:description,
                 jPlayer:{
@@ -50,6 +49,7 @@ include ("connection.php");
             });
         });
     </script>
+
 </head>
 <body>
 	<div id="wrapper">
@@ -98,16 +98,46 @@ include ("connection.php");
 			<div class="right">
 				<section id="right">
 					<div class="content_right">
-						<div class="playlists">
-							<div class="title_container">
-								<div class="playlists_title">Playlists</div>
-							</div>
-							<div class="playlist_list">	
-					<form action="playlist.php" method=GET>
-					<?php include ("list_playlist.php");?>
-					</form>
+						<form action="logged_in.php" method=GET>
+							<div class="playlists">
+								<div class="title_container">
+									<div class="playlists_title">Playlists</div>
+								</div>
+								<div class="playlist_list">
+									<div class="new_playlist">
+										<input type='button' name="add_playlist" class='add_playlist'
+											value='Add playlist'></input>
+									</div>
+					<?php
+					$playlist_query = "SELECT * FROM playlist WHERE username='" . $_SESSION ['username'] . "'";
+					$result_playlist = mysql_query ( $playlist_query );
+					if (isset ( $_GET ['submit_playlist_name'] )) {
+						if (! empty ( $_GET ['playlist_name_input'] )) {
+							$playlist_entry = $_GET ['playlist_name_input'];
+							$playlist_insert_query = "INSERT INTO playlist(id,username,playlist_name) VALUES ('' ,'" . $_SESSION ['username'] . "','" . $playlist_entry . "')";
+							$check_playlist = "SELECT * FROM playlist WHERE playlist_name = '$playlist_entry'";
+							$playlist_checking = mysql_query ( $check_playlist );
+							$nb_results = mysql_num_rows ( $playlist_checking );
+							if ($nb_results > 0)
+								"<div class=playlist_exists>You already have a playlist named " . $playlist_entry . "</div>";
+							
+							else
+								mysql_query ( $playlist_insert_query );
+						}
+					}
+					
+					$result_playlist = mysql_query ( $playlist_query );
+					if (mysql_num_rows ( $result_playlist ) > 0) {
+						while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
+							include ("list_playlist.php");
+						}
+					} else
+						"<div class='playlist_emtpy'>Your playlist is empty</div>";
+					
+					?>
 					</div>
-						</div>
+							</div>
+						</form>
 					</div>
 				</section>
 			</div>

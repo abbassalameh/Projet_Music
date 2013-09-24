@@ -13,9 +13,10 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 <head>
 <meta charset=UTF-8>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
-<link rel=stylesheet type=text/css href=css/style.css media="screen">
-<link rel="stylesheet"
-	href="http://jquery.bassistance.de/validate/demo/css/screen.css">
+<link rel=stylesheet type=text/css href=css/style.css>
+<link rel='stylesheet perytech' type=text/css
+	href='css/font-awesome.css'>
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 <!-- la icon doit etre de type png -->
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
@@ -27,10 +28,10 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 <script src="js/prefixfree.min.js"></script>
 <script src="js/master.js"></script>
 <script src="js/jquery.validate.js"></script>
-<script src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
-<script src="./plugin/ttw-music-player-min.js"></script>
-<script src="js/master_input.js"></script>
-<script src="js/master_ajax.js"></script>
+<script type="text/javascript" src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
+<script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
+<script type="text/javascript" src="js/master_input.js"></script>
+<script type="text/javascript" src="js/master_ajax.js"></script>
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
 <script type="text/javascript">
 var myPlaylist = [
@@ -47,7 +48,7 @@ var myPlaylist = [
         	$('#scrollbar1').tinyscrollbar();
         	$('#scrollbar3').tinyscrollbar();
         	var description = '';
-$('.music_sample').ttwMusicPlayer(myPlaylist, {
+				$('.music_sample').ttwMusicPlayer(myPlaylist, {
                 autoPlay:false, 
                 description:description,
                 jPlayer:{
