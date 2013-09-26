@@ -7,7 +7,10 @@ include ("connection.php");
 <head>
 <meta charset=UTF-8>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
-<link rel=stylesheet type=text/css href=css/style.css media="screen">
+<link rel=stylesheet type=text/css href=css/style.css>
+<link rel='stylesheet perytech' type=text/css
+	href='css/font-awesome.css'>
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 <!-- la icon doit etre de type png -->
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
@@ -19,8 +22,7 @@ include ("connection.php");
 <script src="js/prefixfree.min.js"></script>
 <script src="js/master.js"></script>
 <script src="js/jquery.validate.js"></script>
-<script type="text/javascript"
-	src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
+<script type="text/javascript" src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
 <script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
 <script type="text/javascript" src="js/master_input.js"></script>
 <script type="text/javascript" src="js/master_ajax.js"></script>
@@ -49,7 +51,6 @@ var myPlaylist = [
             });
         });
     </script>
-
 </head>
 <body>
 	<div id="wrapper">
@@ -143,9 +144,30 @@ var myPlaylist = [
 			</div>
 		</div>
 		<footer>
-			<p>Some copyright and legal notices here. Maybe use the © symbol a
-				bit.</p>
+
+			<div class="image_container">
+				<div class="profo dev">
+					<a><span></span><img src="./img/9.jpg" alt="image"></a>
+				</div>
+			</div>
+			<div class="text_dev">
+				Hello I'm Yuri and I'm the developer of this website . I thirst for
+				code . I have an unconditional love to javascript,CSS3 and HTML5 . I
+				experiment a lot . Wicked as a witch yet awesome as Barney Stinson .
+				<div class="quote">Your future is what you build in your past</div>
+			</div>
+			<div class='social-wrap'>
+				<ul>
+					<li><a class='facebook' href='http://www.facebook.com/'
+						target='_blaank'>Facebook</a></li>
+					<li><a class='twitter' href='http://twitter.com/' target='_blaank'>Twitter</a></li>
+					<li><a class='google-p' href='https://plus.google.com/'
+						target='_blaank'>Google Plus</a></li>
+					<li><a class='rss' href='#' target='_blaank'>Rss</a></li>
+				</ul>
+			</div>
 		</footer>
+		
 	</div>
 	<script src="js/modernizr.js"></script>
 </body>

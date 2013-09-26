@@ -12,14 +12,17 @@
 	font-family: "Dutch & Harley";
 	src: url(../fonts/Dutch & Harley.ttf);
 }
+
 @font-face {
-  font-family: "13";
-  src: url(../fonts/13.otf)
+	font-family: "13";
+	src: url(../fonts/13.otf)
 }
+
 @font-face {
-  font-family: "15";
-  src: url(../fonts/15.ttf)
+	font-family: "15";
+	src: url(../fonts/15.ttf)
 }
+
 body {
 	background: url(../img/bg.png) repeat;
 }
@@ -194,7 +197,7 @@ footer {
 	margin-left: -8px;
 	height: 200px;
 	width: 101.21%;
-	overflow:hidden;
+	overflow: hidden;
 }
 /************/
 #overlay {
@@ -204,7 +207,7 @@ footer {
 	width: 100%;
 	height: 100%;
 	background-color: #000;
-	filter: alpha(opacity =                   70);
+	filter: alpha(opacity =                     70);
 	-moz-opacity: 0.7;
 	-khtml-opacity: 0.7;
 	opacity: 0.7;
@@ -517,16 +520,17 @@ ul.date li,ul.country_selector li {
 	height: 500px;
 }
 
-.playlists_title ,.artists_title{
+.playlists_title,.artists_title {
 	color: #0066FF;
 	border: 3px solid #3399FF;
 	font: normal 30px "Dutch & Harley", Verdana, Tahoma;
 	padding-left: 20px;
 	background-color: #EBF3FF;
 }
-.artists_title{
-	margin-left:23px;
-	margin-top:20px;
+
+.artists_title {
+	margin-left: 23px;
+	margin-top: 20px;
 }
 
 .playlist_name {
@@ -628,8 +632,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar1 .scrollbar {
-	background: transparent url(../img/bg-scrollbar-track-y.png)
-		no-repeat 0 0;
+	background: transparent url(../img/bg-scrollbar-track-y.png) no-repeat 0
+		0;
 	position: relative;
 	background-position: 0 0;
 	float: right;
@@ -646,8 +650,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar1 .thumb {
-	background: transparent url(../img/bg-scrollbar-thumb-y.png)
-		no-repeat 50% 100%;
+	background: transparent url(../img/bg-scrollbar-thumb-y.png) no-repeat
+		50% 100%;
 	height: 20px;
 	width: 25px;
 	cursor: pointer;
@@ -658,8 +662,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar1 .thumb .end {
-	background: transparent url(../img/bg-scrollbar-thumb-y.png)
-		no-repeat 50% 0;
+	background: transparent url(../img/bg-scrollbar-thumb-y.png) no-repeat
+		50% 0;
 	overflow: hidden;
 	height: 5px;
 	width: 25px;
@@ -699,8 +703,7 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar2 .scrollbar {
-	background: transparent url(../img/bg-scrollbar-track-y.png)
-		repeat 0 0;
+	background: transparent url(../img/bg-scrollbar-track-y.png) repeat 0 0;
 	position: relative;
 	background-position: 0 0;
 	float: right;
@@ -717,8 +720,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar2 .thumb {
-	background: transparent url(../img/bg-scrollbar-thumb-y.png)
-		no-repeat 50% 100%;
+	background: transparent url(../img/bg-scrollbar-thumb-y.png) no-repeat
+		50% 100%;
 	height: 20px;
 	width: 25px;
 	cursor: pointer;
@@ -729,8 +732,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar2 .thumb .end {
-	background: transparent url(../img/bg-scrollbar-thumb-y.png)
-		no-repeat 50% 0;
+	background: transparent url(../img/bg-scrollbar-thumb-y.png) no-repeat
+		50% 0;
 	overflow: hidden;
 	height: 5px;
 	width: 25px;
@@ -771,8 +774,7 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar3 .scrollbar {
-	background: transparent url(../img/bg-scrollbar-track-y.png)
-		repeat 0 0;
+	background: transparent url(../img/bg-scrollbar-track-y.png) repeat 0 0;
 	position: relative;
 	background-position: 0 0;
 	float: right;
@@ -789,8 +791,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar3 .thumb {
-	background: transparent url(../img/bg-scrollbar-thumb-y.png)
-		no-repeat 50% 100%;
+	background: transparent url(../img/bg-scrollbar-thumb-y.png) no-repeat
+		50% 100%;
 	height: 20px;
 	width: 25px;
 	cursor: pointer;
@@ -801,8 +803,8 @@ ul.date li,ul.country_selector li {
 }
 
 #scrollbar3 .thumb .end {
-	background: transparent url(../img/bg-scrollbar-thumb-y.png)
-		no-repeat 50% 0;
+	background: transparent url(../img/bg-scrollbar-thumb-y.png) no-repeat
+		50% 0;
 	overflow: hidden;
 	height: 5px;
 	width: 25px;
@@ -819,6 +821,7 @@ ul.date li,ul.country_selector li {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
+
 .profo {
 	margin: 30px;
 	position: relative;
@@ -836,9 +839,11 @@ ul.date li,ul.country_selector li {
 	border: solid 1px #ccc;
 	padding: 4px;
 }
+
 .profo a {
 	text-decoration: none;
 }
+
 .dev span {
 	width: 115px;
 	height: 32px;
@@ -848,94 +853,111 @@ ul.date li,ul.country_selector li {
 	left: 12px;
 	background: url(../img/tape2.png) no-repeat;
 }
-.text_dev{
-	width:500px;
-	height:140px;
+
+.text_dev {
+	width: 500px;
+	height: 140px;
 	/*border: 1px solid red;*/
-	float:left;
-	margin:10px 10px 10px 10px;
-	color:#FFFFFF;
+	float: left;
+	margin: 10px 10px 10px 10px;
+	color: #FFFFFF;
 	font-size: 20px;
-	font-family: "13";}
+	font-family: "13";
+}
 /*.bio {
 	overflow:hidden;
 }*/
-.image_container{
-	border: 1px solid green;
-	float:left;
+.image_container {
+	border-right: 4px solid white;
+	float: left;
 }
-.quote{margin:20px 10px 10px 10px;
-	width:650px;
-	font-size:35px;
-	font-family: "15";}
-.social-wrap {
-margin:0px 0px 0px 0px;
-padding:0px 0px 0px 0px;
 
+.quote {
+	margin: 20px 10px 10px 10px;
+	width: 650px;
+	font-size: 35px;
+	font-family: "15";
 }
-.social-wrap ul li{
-list-style:none;
-border-bottom:none;
-margin:0px 0px 0px 0px;
-padding:0px 0px 0px 0px;
+
+.social-wrap {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
+
+.social-wrap ul li {
+	list-style: none;
+	border-bottom: none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
 .social-wrap li a {
-margin:5px 5px 0px 5px;
-padding:0px 0px 0px 0px;
-width:60px;
-height:60px;
-float:left;
-text-indent:-99999px;
-background: #1BAAF2;
-border:solid 1px #222121;
--moz-border-radius-topleft: 5px;
--moz-border-radius-topright:5px;
--moz-border-radius-bottomleft:5px;
--moz-border-radius-bottomright:5px;
--webkit-border-top-left-radius:5px;
--webkit-border-top-right-radius:5px;
--webkit-border-bottom-left-radius:5px;
--webkit-border-bottom-right-radius:5px;
-border-top-left-radius:5px;
-border-top-right-radius:5px;
-border-bottom-left-radius:5px;
-border-bottom-right-radius:5px;
+	margin: 5px 5px 0px 5px;
+	padding: 0px 0px 0px 0px;
+	width: 60px;
+	height: 60px;
+	float: left;
+	text-indent: -99999px;
+	background: #1BAAF2;
+	border: solid 1px #222121;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
+
 .social-wrap li a.facebook {
-background: #1BAAF2 url(../img/facebook.png) no-repeat -0px -88px;
--webkit-transition:All 0.3s ease-out;
--moz-transition:All 0.3s ease-out;
--o-transition:All 0.3s ease-out;
+	background: #1BAAF2 url(../img/facebook.png) no-repeat -0px -88px;
+	-webkit-transition: All 0.3s ease-out;
+	-moz-transition: All 0.3s ease-out;
+	-o-transition: All 0.3s ease-out;
 }
+
 .social-wrap li a.facebook:hover {
-background: #1BAAF2 url(../img/facebook.png) no-repeat -0px -0px;
+	background: #1BAAF2 url(../img/facebook.png) no-repeat -0px -0px;
 }
+
 .social-wrap li a.twitter {
-background: #1BAAF2 url(../img/twitter-1.png) no-repeat -0px -88px;
--webkit-transition:All 0.3s ease-out;
--moz-transition:All 0.3s ease-out;
--o-transition:All 0.3s ease-out;
+	background: #1BAAF2 url(../img/twitter-1.png) no-repeat -0px -88px;
+	-webkit-transition: All 0.3s ease-out;
+	-moz-transition: All 0.3s ease-out;
+	-o-transition: All 0.3s ease-out;
 }
+
 .social-wrap li a.twitter:hover {
-background: #1BAAF2 url(../img/twitter-1.png) no-repeat -0px -0px;
+	background: #1BAAF2 url(../img/twitter-1.png) no-repeat -0px -0px;
 }
+
 .social-wrap li a.google-p {
-background:#1BAAF2 url(../img/google.png) no-repeat -0px -88px;
--webkit-transition:All 0.3s ease-out;
--moz-transition:All 0.3s ease-out;
--o-transition:All 0.3s ease-out;
+	background: #1BAAF2 url(../img/google.png) no-repeat -0px -88px;
+	-webkit-transition: All 0.3s ease-out;
+	-moz-transition: All 0.3s ease-out;
+	-o-transition: All 0.3s ease-out;
 }
+
 .social-wrap li a.google-p:hover {
-background: #1BAAF2 url(../img/google.png) no-repeat -0px -0px;
+	background: #1BAAF2 url(../img/google.png) no-repeat -0px -0px;
 }
+
 .social-wrap li a.rss {
-background:#1BAAF2 url(../img/twitter.png) no-repeat -0px -88px;
--webkit-transition:All 0.3s ease-out;
--moz-transition:All 0.3s ease-out;
--o-transition:All 0.3s ease-out;
+	background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -88px;
+	-webkit-transition: All 0.3s ease-out;
+	-moz-transition: All 0.3s ease-out;
+	-o-transition: All 0.3s ease-out;
 }
+
 .social-wrap li a.rss:hover {
-background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -0px;}
+	background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -0px;
+}
+
 .icon-button {
 	background-color: #4099ff;
 	border-radius: 3.6rem;
@@ -948,9 +970,9 @@ background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -0px;}
 	position: relative;
 	text-align: center;
 	-webkit-user-select: none;
-	   -moz-user-select: none;
-	    -ms-user-select: none;
-	        user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	width: 3.6rem;
 }
 
@@ -964,17 +986,19 @@ background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -0px;}
 	position: absolute;
 	top: 50%;
 	-webkit-transition: all 0.3s;
-	   -moz-transition: all 0.3s;
-	     -o-transition: all 0.3s;
-	        transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 	width: 0;
 }
+
 .icon-button:hover span {
 	width: 3.6rem;
 	height: 3.6rem;
 	border-radius: 3.6rem;
 	margin: -1.8rem;
 }
+
 .twitter span {
 	background-color: white;
 }
@@ -989,19 +1013,27 @@ background: #1BAAF2 url(../img/twitter.png) no-repeat -0px -0px;}
 	position: absolute;
 	top: 0;
 	-webkit-transition: all 0.3s;
-	   -moz-transition: all 0.3s;
-	     -o-transition: all 0.3s;
-	        transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 	width: 3.6rem;
 	z-index: 10;
 }
+
 .icon-button .icon-twitter {
 	color: white;
 }
 
-.icon-button:hover .icon-twitter{
+.icon-button:hover .icon-twitter {
 	color: #4099ff;
 }
-.scroll_thing{
-	margin:40px 0px 0px 0px;}
+
+.scroll_thing {
+	margin: 40px 0px 0px 0px;
+}
+
+}
+.social_bar {
+	margin-left: 23px;
+	margin-top: 20px;
 }

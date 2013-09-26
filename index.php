@@ -9,6 +9,7 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 	$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
 	$login_result = mysql_query ( $sql );
 	$count = mysql_num_rows ( $login_result );
+	echo "<script>location.reload();</script>";
 	if ($count == 1) {
 		if (! isset ( $_SESSION ['username'] )) {
 			$_SESSION ['username'] = $user;
@@ -28,6 +29,8 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 <meta charset=UTF-8>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
 <link rel=stylesheet type=text/css href=css/style.css>
+<link rel=stylesheet type=text/css href=css/social-buttons.css>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel='stylesheet perytech' type=text/css
 	href='css/font-awesome.css'>
 <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
@@ -53,7 +56,7 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 <script type="text/javascript">
 (function($) {
 	$(function() {
-		$("#scroller").simplyScroll({orientation:'vertical',customClass:'vert'});
+		$("#scroller").simplyScroll({orientation:'vertical',customClass:'vert',speed: 2});
 	});
 })(jQuery);
 </script>
@@ -152,7 +155,7 @@ $().ready(function() {
 				</tr>
 			</table>
 		</nav>
-		<form action="index.php" action='GET'>
+		<form action="<?php $_SERVER['PHP_SELF'];?>" action='GET'>
 			<div class='popup'>
 				<div class="login">
 					<span class="title_login">Login</span> <img src='img/x.png'
@@ -469,6 +472,11 @@ $().ready(function() {
 						<div class="scroll_thing">
 							<ul id="scroller"><?php include ("scrolling.php");?></ul>
 						</div>
+						<div class="social_bar">
+						<p><button class="btn btn-facebook"><i class="icon-facebook"></i> | Add us on Facebook</button></p>
+						<p><button class="btn btn-twitter"><i class="icon-twitter"></i> | Follow us on Twitter</button></p>
+						<p><button class="btn google-plus"><i class="icon-google-plus"></i> | Circle us on Google Plus</button></p>
+						</div>
 					</div>
 				</section>
 			</div>
@@ -483,7 +491,7 @@ $().ready(function() {
 			<div class="text_dev">
 				Hello I'm Yuri and I'm the developer of this website . I thirst for
 				code . I have an unconditional love to javascript,CSS3 and HTML5 . I
-				experiemt a lot . Wicked as a witch yet awesome as Barney Stinson .
+				experiment a lot . Wicked as a witch yet awesome as Barney Stinson .
 				<div class="quote">Your future is what you build in your past</div>
 			</div>
 			<div class='social-wrap'>

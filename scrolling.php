@@ -6,6 +6,9 @@ while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
 	echo "<li><div class=\"search_result\">";
 	$title_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['title'] ) ) );
 	$artist_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['artist'] ) ) );
-	echo "<table><tr><td rowspan=2><img src=\"".$row_search['cover']."\" /></td><td>".$title_searched."</td></tr><tr><td>".$artist_searched."</td></tr></table>";
+	echo "<table><tr><td rowspan=3><img src=\"".$row_search['cover']."\" /></td><td></td></tr>
+		<tr><td><div class=\"our_artists_title\">".$artist_searched."</div></td></tr>
+		<tr><td></td></tr>
+</table>";		
 	echo "</div></li>"; }
 	?>
