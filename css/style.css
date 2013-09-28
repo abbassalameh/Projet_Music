@@ -27,6 +27,7 @@
 	font-family: "Capital Daren Regular";
 	src: url(../fonts/Capital Daren Regular.ttf);
 }
+
 body {
 	background: url(../img/bg.png) repeat;
 }
@@ -211,7 +212,7 @@ footer {
 	width: 100%;
 	height: 100%;
 	background-color: #000;
-	filter: alpha(opacity =                     70);
+	filter: alpha(opacity =                       70);
 	-moz-opacity: 0.7;
 	-khtml-opacity: 0.7;
 	opacity: 0.7;
@@ -1041,8 +1042,48 @@ ul.date li,ul.country_selector li {
 	margin-left: 23px;
 	margin-top: 20px;
 }
-.our_artists_title{
-		font-family:"Capital Daren Regular";
-		font-size:24px;
-		color:#4099ff;
+
+.our_artists_title {
+	font-family: "Capital Daren Regular";
+	font-size: 24px;
+	color: #4099ff;
+}
+/*****************************************************/
+/*              THe close button                     */
+.button_example {
+	border: 1px solid #d1dcdf;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 15px;
+	font-family: arial, helvetica, sans-serif;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+	display: inline-block;
+	font-weight: bold;
+	color: #3414FF;
+	background-color: #f2f5f6;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f5f6),
+		to(#c8d7dc));
+	background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
+	background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
+	background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
+	background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
+	background-image: linear-gradient(to bottom, #f2f5f6, #c8d7dc);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,
+		startColorstr=#f2f5f6, endColorstr=#c8d7dc);
+}
+
+.button_example:hover {
+	border: 1px solid #b6c7cc;
+	background-color: #d4dee1;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#d4dee1),
+		to(#a9c0c8));
+	background-image: -webkit-linear-gradient(top, #d4dee1, #a9c0c8);
+	background-image: -moz-linear-gradient(top, #d4dee1, #a9c0c8);
+	background-image: -ms-linear-gradient(top, #d4dee1, #a9c0c8);
+	background-image: -o-linear-gradient(top, #d4dee1, #a9c0c8);
+	background-image: linear-gradient(to bottom, #d4dee1, #a9c0c8);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,
+		startColorstr=#d4dee1, endColorstr=#a9c0c8);
 }
