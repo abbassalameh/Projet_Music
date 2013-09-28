@@ -1,6 +1,15 @@
 <?php
 if (isset ( $_GET ['q'] )) {
 	?>
+
+	<?php
+	
+	$q = $_GET ['q'];
+	$q = str_replace ( ' ', '_', strtolower ( $q ) );
+	$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";
+	$search_result = mysql_query ( $search_querry );
+	$nb_result = mysql_num_rows ( $search_result );
+	if($nb_result>0){?>
 <div id="scrollbar3">
 	<div class="scrollbar">
 		<div class="track">
@@ -11,14 +20,7 @@ if (isset ( $_GET ['q'] )) {
 	</div>
 	<div class="viewport">
 		<div class="overview">
-	
-	<?php
-	
-	$q = $_GET ['q'];
-	$q = str_replace ( ' ', '_', strtolower ( $q ) );
-	$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";
-	$search_result = mysql_query ( $search_querry );
-	$nb_result = mysql_num_rows ( $search_result );
+	<?php 
 	while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
 		echo "<div class=\"search_result\">";
 		$title_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['title'] ) ) );
@@ -37,14 +39,14 @@ if (isset ( $_GET ['q'] )) {
 								</audio></tr>
 								</table>";
 		echo "</div>";
+	}	?></div>
+	</div>
+</div>
+<?php
 	}
 	if ($nb_result == 0)
 		$_SESSION ['search_result'] = 0;
 	else
 		$_SESSION ['search_result'] = 1;
-	?>	</div>
-	</div>
-</div>
-<?php
 }
 ?>	

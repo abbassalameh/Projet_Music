@@ -84,9 +84,10 @@ var myPlaylist = [
 					<div class="content_left">
 						<!--  this is where the search results goes -->
 						<?php
-						include ("search_logged.php");
+						
+						/*include ("search_logged.php");*/
 						if (isset ( $_GET ['playlist_name'] )) {
-							$_SESSION ['playlist_name'] = $_GET ['playlist_name'];
+							$_SESSION ['playlist_name'] = $_GET ['playlist_name']; 
 							include ("playlist_content.php");
 						}
 						?>
