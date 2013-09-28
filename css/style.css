@@ -23,6 +23,10 @@
 	src: url(../fonts/15.ttf)
 }
 
+@font-face {
+	font-family: "Capital Daren Regular";
+	src: url(../fonts/Capital Daren Regular.ttf);
+}
 body {
 	background: url(../img/bg.png) repeat;
 }
@@ -1036,4 +1040,9 @@ ul.date li,ul.country_selector li {
 .social_bar {
 	margin-left: 23px;
 	margin-top: 20px;
+}
+.our_artists_title{
+		font-family:"Capital Daren Regular";
+		font-size:24px;
+		color:#4099ff;
 }

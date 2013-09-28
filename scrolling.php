@@ -8,7 +8,6 @@ while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
 	$artist_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['artist'] ) ) );
 	echo "<table><tr><td rowspan=3><img src=\"".$row_search['cover']."\" /></td><td></td></tr>
 		<tr><td><div class=\"our_artists_title\">".$artist_searched."</div></td></tr>
-		<tr><td></td></tr>
-</table>";		
+		<tr><td></td></tr></table>";		
 	echo "</div></li>"; }
 	?>

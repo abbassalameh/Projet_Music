@@ -16,6 +16,8 @@ if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 <link rel=stylesheet type=text/css href=css/style.css>
 <link rel='stylesheet perytech' type=text/css
 	href='css/font-awesome.css'>
+<link rel=stylesheet type=text/css href=css/social-buttons.css>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 <!-- la icon doit etre de type png -->
 <link rel="shortcut icon" href="img/favicon.png" type="image/png">
@@ -160,7 +162,13 @@ var myPlaylist = [
 						"<div class='playlist_emtpy'>Your playlist is empty</div>";
 					
 					?>
+					<div class="social_bar">
+						<p><button class="btn btn-facebook"><i class="icon-facebook"></i> | Add us on Facebook</button></p>
+						<p><button class="btn btn-twitter"><i class="icon-twitter"></i> | Follow us on Twitter</button></p>
+						<p><button class="btn google-plus"><i class="icon-google-plus"></i> | Circle us on Google Plus</button></p>
+						</div>
 					</div>
+					
 							</div>
 						</form>
 					</div>
