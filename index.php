@@ -1,6 +1,6 @@
 <?php
 include ("suggested.php");
-$_SESSION['no_result']=0
+$_SESSION['no_result']=0;
 ?>
 
 <?php
@@ -23,6 +23,7 @@ if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
 		else
 			header ( "Location: logged_in.php" );
 	} else {
+		$_SESSION['notuser']=1;
 		header ( "Location: index.php" );
 	}
 }
@@ -134,6 +135,20 @@ $().ready(function() {
 
 });
 </script>
+<script>var fade_out = function() {
+  $("#warning").fadeOut().empty();
+}
+
+setTimeout(fade_out, 9500);</script>
+<script>var fade_out = function() {
+  $("#errorr").fadeOut().empty();
+}
+
+setTimeout(fade_out, 9500);</script>
+<script>var fade_out = function() {
+  $("#notice").fadeOut().empty();
+}
+setTimeout(fade_out, 9500);</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -465,7 +480,11 @@ $().ready(function() {
 						if($_SESSION['search_result']==0){
 						if($_SESSION['no_result']==1){
 							?>
-						<div class="alert-box error"><span>error: </span>No such result :/ sorry !!! .</div> <?php }?>
+						<div class="alert-box errorr" id="errorr"><span>error: </span>No such result :/ sorry !!! .</div> <?php }?>
+						<?php if(isset($_SESSION['notuser'])){if($_SESSION['notuser']==1){?>
+						<div class="alert-box warning" id="warning"><span>warning: </span>You are not a user .</div> <?php $_SESSION['notuser']=0;}}?>
+						<?php if(isset($_SESSION['signup_done'])){if($_SESSION['signup_done']==1){?>
+						<div class="alert-box notice" id="notice"><span>notice: </span>Welcome to Mellow-Dee.</div><?php $_SESSION['signup_done']=0;}}?>
 <div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>

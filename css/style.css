@@ -1088,17 +1088,29 @@ ul.date li,ul.country_selector li {
 		startColorstr=#d4dee1, endColorstr=#a9c0c8);
 }
 .alert-box {
-		color:#555;
-		border-radius:10px;
-		font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
-		padding:10px 36px;
-		margin:10px;
-	}
-	.alert-box span {
-		font-weight:bold;
-		text-transform:uppercase;
-	}
-	.error {
-		background:#ffecec url('../img/error.png') no-repeat 10px 50%;
-		border:1px solid #f5aca6;
-	}
+	color:#555;
+	border-radius:10px;
+	font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+	padding:10px 36px;
+	margin:10px;
+}
+.alert-box span {
+	font-weight:bold;
+	text-transform:uppercase;
+}
+.errorr {
+	background:#ffecec url('../img/error.png') no-repeat 10px 50%;
+	border:1px solid #f5aca6;
+}
+.success {
+	background:#e9ffd9 url('../imgsuccess.png') no-repeat 10px 50%;
+	border:1px solid #a6ca8a;
+}
+.warning {
+	background:#fff8c4 url('../img/warning.png') no-repeat 10px 50%;
+	border:1px solid #f2c779;
+}
+.notice {
+	background:#e3f7fc url('../img/notice.png') no-repeat 10px 50%;
+	border:1px solid #8ed9f6;
+}

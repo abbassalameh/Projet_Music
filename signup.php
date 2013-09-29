@@ -14,5 +14,5 @@ if (isset ( $_GET ['username'] ) && isset ( $_GET ['password'] ) && isset ( $_GE
 	if($nb_results>0)echo "<script> alert('User/email already in use , change your username/email please');</script>";
 	else {$insert_query = "INSERT INTO users(id,username,password,date,country,phone,email) VALUES ('' ,'" . $username . "','" . $password . "','" . $date . "','" . $country . "','" . $phone . "','" . $email . "')";
 			mysql_query ( $insert_query );
-			echo "<script> alert('Registration Successful ! ');</script>";}}}
+			$_SESSION['signup_done']=1;}}}
 ?>

@@ -60,7 +60,12 @@ var myPlaylist = [
             });
         });
     </script>
-</head>
+    <script>var fade_out = function() {
+  $("#errorr").fadeOut().empty();
+}
+
+setTimeout(fade_out, 9500);</script>
+    </head>
 <body>
 	<div id="wrapper">
 
@@ -120,7 +125,7 @@ var myPlaylist = [
 						<?php if($_SESSION['search_result']==0){
 						if($_SESSION['no_result']==1){
 							?>
-						<div class="alert-box error"><span>error: </span>No such result :/ sorry !!! .</div> <?php }?>
+						<div class="alert-box errorr" id="errorr"><span>error: </span>No such result !!! .</div> <?php }?>
 <div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>
