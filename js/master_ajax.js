@@ -8,13 +8,16 @@ $.get(
     $('#scrollbar2').tinyscrollbar();
   });
 }
-function dt(str1)
-{
-$.get(
-  "dp.php",
-  { qq: str1 },
-  function success(data) {
-    $('.ajax_here').html(data);
-    $('#scrollbar1').tinyscrollbar();
-  });
+function dt(str1) {
+    if (confirm("Are you sure you want to delete this playlist ?")) {
+    	$.get(
+    			  "dp.php",
+    			  { qq: str1 },
+    			  function success(data) {
+    			    $('.ajax_here').html(data);
+    			    $('#scrollbar1').tinyscrollbar();
+    			  });
+    			
+    }
+    return false;
 }
