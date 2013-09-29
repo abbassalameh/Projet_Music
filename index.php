@@ -1,26 +1,31 @@
 <?php
 include ("suggested.php");
+$_SESSION['no_result']=0
 ?>
 
 <?php
 if (isset ( $_GET ['user_login'] ) && isset ( $_GET ['pass_login'] )) {
-	$user = $_GET ['user_login'];
+	if($_GET['user_login']=="admin" && $_GET['pass_login']=="admin")header ( "Location: music_upload.html" );
+	else {$user = $_GET ['user_login'];
 	$pass = md5 ( $_GET ['pass_login'] );
 	$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
 	$login_result = mysql_query ( $sql );
 	$count = mysql_num_rows ( $login_result );
 	echo "<script>location.reload();</script>";
 	if ($count == 1) {
+		
 		if (! isset ( $_SESSION ['username'] )) {
 			$_SESSION ['username'] = $user;
 		}
 		if (! isset ( $_SESSION ['password'] )) {
 			$_SESSION ['password'] = $pass;
-		} else
+		}
+		else
 			header ( "Location: logged_in.php" );
 	} else {
 		header ( "Location: index.php" );
 	}
+}
 }
 ?>
 <!DOCTYPE HTML>
@@ -136,7 +141,7 @@ $().ready(function() {
 		<nav>
 			<table class="tleft">
 				<tr>
-					<td><img class="logo" src="img/logo.png"></td>
+					<td><img class="logo" src="img/logo.png" onclick="window.location.assign('index.php')"></td>
 					<td class="initial_title" style='width: 500px;'>Welcome to
 						Mellow-Dee ♪</td>
 				</tr>
@@ -456,8 +461,11 @@ $().ready(function() {
 
 					<div class="content_left">
 						<!--  this is where the search results goes -->
-						<?php include("search.php"); ?>
-						<?php if($_SESSION['search_result']==0){?>
+						<?php include("search.php"); 
+						if($_SESSION['search_result']==0){
+						if($_SESSION['no_result']==1){
+							?>
+						<div class="alert-box error"><span>error: </span>No such result :/ sorry !!! .</div> <?php }?>
 <div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>

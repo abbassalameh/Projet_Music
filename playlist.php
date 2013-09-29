@@ -57,7 +57,7 @@ var myPlaylist = [
 		<nav>
 			<table class="tleft">
 				<tr>
-					<td><img class="logo" src="img/logo.png"></td>
+					<td><img class="logo" src="img/logo.png" onclick="window.location.assign('index.php')"></td>
 					<td class="initial_title" style='width: 500px;'>Welcome to
 						Mellow-Dee ♪</td>
 				</tr>

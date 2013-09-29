@@ -1,5 +1,6 @@
 <?php
 include ("suggested.php");
+$_SESSION['no_result']=0;
 if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 	unset ( $_SESSION );
 	session_destroy ();
@@ -66,7 +67,7 @@ var myPlaylist = [
 		<nav>
 			<table class="tleft">
 				<tr>
-					<td><img class="logo" src="img/logo.png"></td>
+					<td><img class="logo" src="img/logo.png" onclick="window.location.assign('logged_in.php')"></td>
 					<td class="initial_title" style='width: 500px;'>Welcome to
 						Mellow-Dee ♪</td>
 				</tr>
@@ -116,8 +117,10 @@ var myPlaylist = [
 					<div class="content_left">
 						<!--  this is where the search results goes -->
 						<?php include("search_logged.php"); ?>
-						<?php if($_SESSION['search_result']==0){?>
-						<div class="alert-box error"><span>error: </span>No such result :/ sorry !!! .</div>
+						<?php if($_SESSION['search_result']==0){
+						if($_SESSION['no_result']==1){
+							?>
+						<div class="alert-box error"><span>error: </span>No such result :/ sorry !!! .</div> <?php }?>
 <div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>

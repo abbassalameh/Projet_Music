@@ -23,7 +23,7 @@ if (isset ( $_GET ['q'] )) {
 		
 <?php
 		
-while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
+		while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
 			
 			echo "<div class=\"search_result\">";
 			$title_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_search ['title'] ) ) );
@@ -45,9 +45,11 @@ while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
 </div>
 <?php
 	}
-	if ($nb_result == 0)
+	
+	if ($nb_result == 0) {
 		$_SESSION ['search_result'] = 0;
-	else
+		$_SESSION ['no_result'] = 1;
+	} else
 		$_SESSION ['search_result'] = 1;
 }
 ?>	
