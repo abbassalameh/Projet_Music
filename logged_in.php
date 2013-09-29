@@ -155,10 +155,11 @@ var myPlaylist = [
 					
 					$result_playlist = mysql_query ( $playlist_query );
 					if (mysql_num_rows ( $result_playlist ) > 0) {
-						while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
-							include ("list_playlist.php");
-						}
-					} else
+						?><div class="ajax_here">
+						<?php while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
+							 include ("list_playlist.php");
+						} ?></div>
+					<?php } else
 						"<div class='playlist_emtpy'>Your playlist is empty</div>";
 					
 					?>

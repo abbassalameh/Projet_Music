@@ -20,7 +20,7 @@ while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
 		<a href=\"playlist.php?playlist_name=" . $row_playlists ['playlist_name'] . "\" 
 			name=\"playlist_name\" value=\"" . $row_playlists ['playlist_name'] . "\" 
 						>" . $row_playlists ['playlist_name'] . "</a></div></td><td>
-			<a class=\"button_example\" href=\"#\">X</a></td></tr>";
+			<a class=\"button_example\" name=\"".$row_playlists['playlist_name']."\" onclick=\"dt(this.name)\">X</a></td></tr>";
 }
 ?>
 	</table>
