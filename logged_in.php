@@ -117,6 +117,7 @@ var myPlaylist = [
 						<!--  this is where the search results goes -->
 						<?php include("search_logged.php"); ?>
 						<?php if($_SESSION['search_result']==0){?>
+						<div class="alert-box error"><span>error: </span>No such result :/ sorry !!! .</div>
 <div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>

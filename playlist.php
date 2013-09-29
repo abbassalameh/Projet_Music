@@ -20,7 +20,6 @@ include ("connection.php");
 <!-- jquerry pour la boite de recherche -->
 <script src="js/jquery.min.js"></script>
 <script src="js/prefixfree.min.js"></script>
-<script src="js/master.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script type="text/javascript" src="./plugin/jquery-jplayer/jquery.jplayer.js"></script>
 <script type="text/javascript" src="./plugin/ttw-music-player-min.js"></script>
@@ -92,6 +91,7 @@ var myPlaylist = [
 						}
 						?>
 						<?php if($_SESSION['search_result']==0 || $_SESSION['display_playlist'] != 0){?>
+						<div class="alert-box error"><span>error: </span>The playlist <?php echo $_SESSION['playlist_name']?> is empty .</div>
 						<div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>

@@ -1,9 +1,5 @@
 <?php
 if (isset ( $_GET ['q'] )) {
-	?>
-
-	<?php
-	
 	$q = $_GET ['q'];
 	$q = str_replace ( ' ', '_', strtolower ( $q ) );
 	$search_querry = "SELECT * FROM music where title = '$q' OR artist = '$q' OR album = '$q'";

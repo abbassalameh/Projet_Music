@@ -1,19 +1,21 @@
 <?php
-include ("connection.php"); ?>
+include ("connection.php");
+$query_playlist = "SELECT * FROM music_selection JOIN music ON music_selection.id_music = 
+		music.id WHERE playlist_name='" . $_SESSION ['playlist_name'] . "' AND username='" . $_SESSION ['username'] . "'";
+$resultat_playlist = mysql_query ( $query_playlist );
+if (mysql_num_rows ( $resultat_playlist ) > 0) {
+	?>
 <div id="scrollbar3">
-		<div class="scrollbar">
-			<div class="track">
-				<div class="thumb">
-					<div class="end"></div>
-				</div>
+	<div class="scrollbar">
+		<div class="track">
+			<div class="thumb">
+				<div class="end"></div>
 			</div>
 		</div>
-		<div class="viewport">
-			<div class="overview">
-<?php 
-	$query_playlist = "SELECT * FROM music_selection JOIN music ON music_selection.id_music = 
-		music.id WHERE playlist_name='" . $_SESSION ['playlist_name'] . "' AND username='" . $_SESSION ['username'] . "'";
-	$resultat_playlist = mysql_query ( $query_playlist );
+	</div>
+	<div class="viewport">
+		<div class="overview">
+		<?php
 	while ( $row_tab = mysql_fetch_assoc ( $resultat_playlist ) ) {
 		echo "<div class=\"search_result\">";
 		$title_searched = ucfirst ( str_replace ( '_', ' ', strtolower ( $row_tab ['title'] ) ) );
@@ -31,8 +33,14 @@ include ("connection.php"); ?>
 		echo "</div>";
 		$_SESSION ['display_playlist'] = 0;
 		$_SESSION ['search_result'] = 1;
+		
 	}
-?>
-</div>
+	?>
+	</div>
 	</div>
 </div>
+<?php
+}
+?>
+
+
