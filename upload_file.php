@@ -57,13 +57,14 @@ if (! empty ( $title ) && ! empty ( $artist ) && ! empty ( $album ) && ! empty (
 			$querry = "INSERT INTO music(id,title,artist,album,cover,file) VALUES ('' ,'" . $title . "','" . $artist . "','" . $album . "','" . $cover_dir . "','" . $file . "')";
 			mysql_query ( $querry );
 			echo "L'insertion a ete fait<br>";
+			echo "<script>window.location = 'music_upload.html';</script>";
 		}
 	} else {
 		echo "<script>alert('Invalid File');
-		window.location = 'music_upload.php';</script>";
+		window.location = 'music_upload.html';</script>";
 	}
 } else
 	echo "<script>alert('You have forgotten one or more field ! Please recheck');
-				window.location = 'music_upload.php';</script>";
+				window.location = 'music_upload.html';</script>";
 
 ?>

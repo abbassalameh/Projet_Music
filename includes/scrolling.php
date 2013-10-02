@@ -1,5 +1,5 @@
 <?php include("connection.php");
-$search_querry = "SELECT * FROM music ";
+$search_querry = "SELECT * FROM music ORDER BY RAND() LIMIT 10";
 $search_result = mysql_query ( $search_querry );
 $nb_result = mysql_num_rows ( $search_result );
 while ( $row_search = mysql_fetch_assoc ( $search_result ) ) {
