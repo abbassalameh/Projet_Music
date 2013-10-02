@@ -1,6 +1,6 @@
 <?php
-require_once ('php_image_magician.php');
-include ("connection.php");
+require_once ('includes/php_image_magician.php');
+include ("includes/connection.php");
 $title = $_POST ['title'];
 $artist = $_POST ['artist'];
 $album = $_POST ['album'];

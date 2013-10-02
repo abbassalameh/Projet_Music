@@ -1,5 +1,5 @@
 <?php
-include ("suggested.php");
+include ("includes/suggested.php");
 $_SESSION['no_result']=0;
 if (empty ( $_SESSION ['username'] ) && empty ( $_SESSION ['password'] )) {
 	unset ( $_SESSION );
@@ -121,7 +121,7 @@ setTimeout(fade_out, 9500);</script>
 
 					<div class="content_left">
 						<!--  this is where the search results goes -->
-						<?php include("search_logged.php"); ?>
+						<?php include("includes/search_logged.php"); ?>
 						<?php if($_SESSION['search_result']==0){
 						if($_SESSION['no_result']==1){
 							?>
@@ -166,7 +166,7 @@ setTimeout(fade_out, 9500);</script>
 					if (mysql_num_rows ( $result_playlist ) > 0) {
 						?><div class="ajax_here">
 						<?php while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
-							 include ("list_playlist.php");
+							 include ("includes/list_playlist.php");
 						} ?></div>
 					<?php } else
 						"<div class='playlist_emtpy'>Your playlist is empty</div>";

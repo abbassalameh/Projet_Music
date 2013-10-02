@@ -22,6 +22,7 @@ while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
 						>" . $row_playlists ['playlist_name'] . "</a></div></td><td>
 			<a class=\"button_example\" name=\"".$row_playlists['playlist_name']."\" onclick=\"dt(this.name)\">X</a></td></tr>";
 }
+
 ?>
 	</table>
 		</div>

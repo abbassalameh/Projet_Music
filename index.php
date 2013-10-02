@@ -1,5 +1,5 @@
 <?php
-include ("suggested.php");
+include ("includes/suggested.php");
 $_SESSION['no_result']=0;
 ?>
 
@@ -467,7 +467,7 @@ setTimeout(fade_out, 9500);</script>
 						name="phone"> <input name="email" type="text" placeholder="Email"
 						id="email"> <input name="sign_up" type="submit" value="Sign Up">
 				</form>
-								<?php include("signup.php");?>
+								<?php include("includes/signup.php");?>
 			</div>
 		</div>
 		<div id="core" class="clearfix">
@@ -476,7 +476,7 @@ setTimeout(fade_out, 9500);</script>
 
 					<div class="content_left">
 						<!--  this is where the search results goes -->
-						<?php include("search.php"); 
+						<?php include("includes/search.php"); 
 						if($_SESSION['search_result']==0){
 						if($_SESSION['no_result']==1){
 							?>
@@ -497,7 +497,7 @@ setTimeout(fade_out, 9500);</script>
 							<div class="artists_title">Our Artists</div>
 						</div>
 						<div class="scroll_thing">
-							<ul id="scroller"><?php include ("scrolling.php");?></ul>
+							<ul id="scroller"><?php include ("includes/scrolling.php");?></ul>
 						</div>
 						<div class="social_bar">
 						<p><button class="btn btn-facebook"><i class="icon-facebook"></i> | Add us on Facebook</button></p>

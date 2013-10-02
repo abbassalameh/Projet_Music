@@ -1,6 +1,6 @@
 <?php
-include ("suggested.php");
-include ("connection.php");
+include ("includes/suggested.php");
+include ("includes/connection.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -63,7 +63,7 @@ setTimeout(fade_out, 9500);</script>
 		<nav>
 			<table class="tleft">
 				<tr>
-					<td><img class="logo" src="img/logo.png" onclick="window.location.assign('index.php')"></td>
+					<td><img class="logo" src="img/logo.png" onclick="window.location.assign('logged_in.php')"></td>
 					<td class="initial_title" style='width: 500px;'>Welcome to
 						Mellow-Dee ♪</td>
 				</tr>
@@ -93,11 +93,11 @@ setTimeout(fade_out, 9500);</script>
 						/*include ("search_logged.php");*/
 						if (isset ( $_GET ['playlist_name'] )) {
 							$_SESSION ['playlist_name'] = $_GET ['playlist_name']; 
-							include ("playlist_content.php");
+							include ("includes/playlist_content.php");
 						}
 						?>
 						<?php if($_SESSION['search_result']==0 || $_SESSION['display_playlist'] != 0){?>
-						<div class="alert-box errorr" id="errorr"><span>error: </span>The playlist <?php echo $_SESSION['playlist_name']?> is empty .</div>
+						<div class="alert-box errorr" id="errorr"><span>error: </span>The playlist <?php echo "\"".$_SESSION['playlist_name']."\""?> is empty .</div>
 						<div class="title_content_left">Suggested Music</div>
 						<div class="music_sample"></div> <?php  }?>
 					</div>
@@ -136,12 +136,12 @@ setTimeout(fade_out, 9500);</script>
 					
 					$result_playlist = mysql_query ( $playlist_query );
 					if (mysql_num_rows ( $result_playlist ) > 0) {
-						while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
-							include ("list_playlist.php");
-						}
-					} else
+						?><div class="ajax_here">
+						<?php while ( $row_playlists = mysql_fetch_assoc ( $result_playlist ) ) {
+							 include ("includes/list_playlist.php");
+						} ?></div>
+					<?php } else
 						"<div class='playlist_emtpy'>Your playlist is empty</div>";
-					
 					?>
 					</div>
 							</div>
